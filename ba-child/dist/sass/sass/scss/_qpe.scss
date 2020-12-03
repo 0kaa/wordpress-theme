@@ -1,0 +1,367 @@
+/* Heading */
+.cat-heading {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 62px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 42px;
+        height: 42px;
+        @include svg('shape');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 38px 38px;
+        top: 0;
+        left: 0;
+    }
+
+    @include m992 {
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 0;
+        font-size: 21px;
+        color: $main;
+
+        @include m992 {
+            font-size: 19px;
+        }
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: normal;
+        color: #777;
+        margin: 7px 0 0;
+        display: block;
+    }
+}
+
+.view-more {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: $sec;
+    color: #fff;
+    padding: 3px 7px;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: $main;
+        color: #fff;
+    }
+}
+
+
+.banners img {
+    border-radius: 10px;
+}
+
+.sku_wrapper span {
+    font-weight: bold;
+}
+
+
+#BA_woocommerce .widget {
+    margin: 0 0 30px !important;
+}
+
+.home .ba_breadcrumb {
+    display: none !important;
+}
+
+#colophon .footer-inner .contact-info > div .ci-left {
+    background-color: transparent !important;
+}
+
+#colophon .footer-inner .contact-info > div .ci-left i {
+    color: $sec !important;
+}
+
+/* Products */
+#BA_woocommerce .products .product .woocommerce-LoopProduct-link h2.woocommerce-loop-product__title {
+    font-size: 14px;
+    line-height: 1.4;
+
+    @include m992 {
+        font-size: 12px;
+    }
+}
+
+
+#BA_woocommerce .products .product {
+    height: 100% !important;
+}
+
+#BA_woocommerce .products .product .product-inner {
+    height: 100%;
+    border-radius: 5px;
+}
+
+#BA_woocommerce .products .product .product-inner {
+    padding: 0;
+}
+
+#BA_woocommerce .products .product .product-buttons {
+    background-color: #eee;
+}
+
+#BA_woocommerce .products .product .woocommerce-LoopProduct-link h2.woocommerce-loop-product__title {
+    padding: 0 10px;
+}
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price,
+#BA_summary .ba-price .price {
+    color: $sec;
+}
+
+
+/* Topbar */
+.topbar {
+    background-color: #eee;
+    line-height: 40px;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        @include m992 {
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 15px;
+
+            a {
+                color: #333;
+                font-size: 12px;
+
+                i {
+                    margin-right: 3px;
+                }
+
+                &:hover {
+                    color: #222;
+                }
+            }
+        }
+    }
+}
+
+/* Top Sales */
+.top-sales {
+    .product {
+        border-radius: 10px;
+    }
+}
+
+.Vitamins,
+.Personal,
+.top-sales {
+    padding: 60px 0;
+    background-color: #f6f6f6;
+}
+
+.Supplies,
+.Baby,
+.Medications {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.Supplies {
+    padding-bottom: 30px;
+}
+
+/* Single */
+
+#BA_tabs {
+    background-color: #f6f6f6;
+    border-radius: 10px;
+
+    @include m992 {
+        background-color: #fff;
+    }
+}
+
+.woocommerce #content div.product div.images,
+.woocommerce div.product div.images,
+.woocommerce-page #content div.product div.images,
+.woocommerce-page div.product div.images {
+    width: 38%;
+
+    @include m992 {
+        width: 100%;
+    }
+}
+
+.woocommerce #content div.product div.summary,
+.woocommerce div.product div.summary,
+.woocommerce-page #content div.product div.summary,
+.woocommerce-page div.product div.summary {
+    width: 58%;
+
+    @include m992 {
+        width: 100%;
+    }
+}
+
+
+/* My account menu */
+.wc-right-menu {
+    padding: 0;
+    margin: 0;
+    float: right;
+    list-style-type: none;
+
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+
+    li {
+        position: relative;
+        display: inline-block;
+
+        a {
+            display: block;
+            padding: 12px 0 11px;
+            color: #111;
+            font-size: 14px;
+            position: relative;
+
+            &:hover {
+                color: $sec;
+            }
+
+            i {
+                margin-right: 2px;
+            }
+        }
+
+        ul {
+            width: 180px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            z-index: 99999;
+            animation: fadeIn 0.2s linear;
+            opacity: 0;
+
+            li {
+                display: block;
+
+                a {
+                    padding: 10px;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.030);
+                }
+            }
+        }
+
+        &:hover ul {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    .wc-wishlist {
+        margin-left: 10px;
+
+        a {
+            font-size: 16px;
+        }
+    }
+
+}
+
+
+/* Header */
+#AE_header {
+    #logo {
+        padding: 15px 0;
+    }
+}
+
+.ba_breadcrumb {
+    background-color: #eee;
+    margin: 0 0 30px!important;
+    padding: 15px 0;
+}
+
+.wc-search {
+    margin: 20px 0;
+    width: 500px;
+    max-width: 500px;
+
+    @include m992 {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+#wc-search {
+    max-width: 500px;
+    background-color: #f6f6f6;
+    margin-left: 0;
+    padding: 0 15px;
+    border-radius: 100px;
+}
+
+#wc-search .apsw-search-form .apsw-search-btn {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: $sec;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 100%;
+    right: -10px !important;
+}
+
+.primary-menu > li > a {
+    padding: 13px 15px;
+    color: #fff;
+}
+
+.primary-menu > li .arrow {
+    color: #fff;
+}
+
+.social-icons a {
+    color: #fff;
+}
+
+.wc-categories-bar {
+    background-color: $main;
+
+    @include m992 {
+        background-color: #f6f6f6 !important;
+    }
+}
+
+.cart-open i {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 100%;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .095);
+}
+
+/* Footer */
+.footer-logo {
+    width: 80%;
+}

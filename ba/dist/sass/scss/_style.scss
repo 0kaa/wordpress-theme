@@ -1,0 +1,248 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.social-icons {
+    justify-content: flex-end;
+    display: flex;
+
+    a {
+        padding: 5px 8px;
+
+        &:hover {
+            color: $sec;
+        }
+    }
+}
+
+a {
+    color: #111;
+    @include trans(all, .2s, linear);
+
+    &:hover {
+        color: #333;
+        text-decoration: none;
+    }
+}
+
+.hide_link {
+     cursor: auto;
+}
+
+.gray {
+    color: #777
+}
+
+.error404-title {
+    padding-top: 120px;
+    position: relative;
+    
+    &:before {
+        content: '\f12a';
+        position: absolute;
+        top: 0;
+        font-family: $font_icon;
+        font-weight: 900;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        border-radius: 100%;
+        text-align: center;
+        background-color: #FCECEA;
+        font-size: 42px;
+        display: block;
+        color: #e74c3c;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+        font-size: 28px;
+    }
+}
+
+#top {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: $sec;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    outline: inherit;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: none;
+    z-index: 99;
+    @include trans(all, .2s, linear);
+}
+
+/* Dropped Modeal */
+.sbt {
+    position: fixed;
+    z-index: 9999999999999999;
+    @include trans(all, .4s, ease-in-out);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    .sbt-warp {
+        position: fixed;
+        z-index: 1051;
+        width: 360px;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        overflow-y: auto;
+        @include trans(all, .4s, ease-in-out);
+        padding-top: 42px;
+
+        @include m992 {
+            width: 90%;
+        }
+
+        .sbt-inner {
+            position: relative;
+            padding: 0 20px;
+            height: 100%;
+
+            .sbt-close {
+                position: absolute;
+                top: -42px;
+                right: 0;
+
+                button {
+                    background-color: $sec;
+                    border: 0px;
+                    font-size: 14px;
+                    width: 32px;
+                    height: 32px;
+                    color: #fff;
+                    outline: inherit;
+                    @include trans(all, .2s, linear);
+
+                    &:hover {
+                        background-color: $main;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sbt-active {
+    opacity: 1;
+    visibility: visible;
+
+    .sbt-warp {
+        left: 0;
+    }
+}
+
+.sbt-light {
+    .sbt-warp {
+        background-color: #fff;
+    }
+}
+
+.sbt-dark {
+    .sbt-warp {
+        background-color: #1e272e;
+    }
+}
+
+.sidebar-toggle-btn {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 99;
+
+    button {
+        border: 0;
+        outline: inherit !important;
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        border-radius: 100%;
+        background-color: $sec;
+        display: block;
+        @include svg('sidebar');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+/* Image Place holder */
+.place_holder {
+    overflow: hidden;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolder;
+    animation-timing-function: linear;
+    background: #F6F6F6;
+    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+    background-size: 1000px 1000px;
+}
+
+@keyframes placeHolder {
+    0% {
+        background-position: -468px 0
+    }
+
+    100% {
+        background-position: 468px 0
+    }
+}
+
+/* Filters */
+.controls {
+    .control {
+        background-color: transparent;
+        border: 1px solid #222;
+        color: #222;
+        font-size: 14px;
+        font-weight: bold;
+        padding: .4rem 1rem;
+        border-radius: 3px;
+        @extend %mob-click;
+        margin: 0 2.5px;
+
+        &:focus {
+            outline: inherit;
+        }
+
+        @include m992 {
+            margin: 0 0 5px;
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .mixitup-control-active {
+        color: #fff;
+    }
+}
+

@@ -1,0 +1,23 @@
+// @include parallax(100%, img , jpg);
+@mixin parallax($height, $image: null, $extensions: null) {
+    height: $height;
+    background-image: url(../images/#{$image}.#{$extensions});
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+// @include jpg();
+@mixin jpg($jpg: null) {
+    background-image: url(../images/#{$jpg}.jpg);
+}
+
+// @include png();
+@mixin png($png: null) {
+    background-image: url(../images/#{$png}.png);
+}
+
+// @include svg();
+@mixin svg($svg: null) {
+    background-image: url(../svg/#{$svg}.svg);
+}

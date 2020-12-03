@@ -1,0 +1,38 @@
+.proj-thumbnail {
+    position: relative;
+
+    .proj-cat {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+
+        span {
+            background-color: $sec;
+            color: #fff;
+            padding: 5px;
+            margin-right: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+}
+
+.proj-tax .proj-cat {
+    display: none;
+    visibility: hidden;
+}
+
+.proj-select {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999999999;
+
+    button {
+        @extend %btn;
+        @extend %btn-secondary;
+        width: 100%;
+    }
+}

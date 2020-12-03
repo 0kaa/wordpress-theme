@@ -1,0 +1,35 @@
+.ae_active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper-inner {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper-inner-active {
+    overflow: hidden;
+}
+
+.site-content {
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    flex-shrink: 0;
+}
+
+.ov {
+    overflow: hidden;
+}

@@ -1,0 +1,210 @@
+/* Widgets */
+.widget {
+    margin-bottom: 40px;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            margin-bottom: 10px;
+            color: #666;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                color: #666;
+
+                &:hover {
+                    color: $sec;
+                }
+            }
+        }
+    }
+
+    .widget-title {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        position: relative;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 16px;
+
+        &:after {
+            content: ' ';
+            width: 3.684em;
+            border-bottom: 2px solid $sec;
+            display: block;
+            position: absolute;
+            bottom: -1px;
+        }
+    }
+
+    @include m992 {
+        position: relative;
+        cursor: pointer;
+
+        .dropdown {
+            display: block;
+            position: absolute;
+            top: -7px;
+            right: 0;
+            color: #111;
+        }
+    }
+
+    .star-rating {
+        color: #f9ca24;
+    }
+
+    del {
+        opacity: .4;
+        font-weight: normal;
+        display: inline-block;
+        text-decoration: none;
+
+        @include m992 {
+            display: inline-block;
+        }
+
+        .amount {
+            position: relative;
+            text-decoration: line-through;
+        }
+    }
+
+    ins {
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+
+        @include m992 {
+            display: inline-block;
+        }
+    }
+
+}
+
+.widget_product_categories,
+.widget_archive,
+.widget_categories {
+
+    ul li {
+        padding: 10px 10px;
+        margin-bottom: 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        a {
+            border: none;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        .post-count .post-count,
+        .count .post-count {
+            color: #777;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: #eee;
+            color: #222;
+            border-radius: 100%;
+            float: right;
+        }
+
+        ul {
+            margin-left: 10px;
+
+            li:first-child {
+                margin-top: 10px;
+            }
+
+            li {
+                padding: 5px 0;
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 45%;
+                    left: -15px;
+                    transform: translateX(-45%);
+                    width: 10px;
+                    height: 2px;
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+
+
+    .current-cat {
+
+        > a {
+            color: $sec;
+            font-weight: bold;
+        }
+
+        > .post-count {
+            background-color: $sec;
+            color: #fff;
+        }
+    }
+
+    .cat-parent,
+    .current-cat-parent {
+        position: relative;
+        padding: 0 10px;
+        margin-top: 20px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #eee;
+        }
+    }
+}
+
+/* Search Widget */
+.search-form {
+
+    .btn {
+        padding: .7rem 1rem;
+    }
+}
+
+
+/* Services Widget */
+.projects-sidebar,
+.services-sidebar {
+    .widget_nav_menu {
+        
+        ul {
+            li {
+                padding: 10px 15px;
+                
+                &:nth-child(even) {
+                    background-color: #f6f6f6;
+                }
+                
+                &:nth-child(odd) {
+                    background-color: #f9f9f9;
+                }
+            }
+        }
+    }
+}

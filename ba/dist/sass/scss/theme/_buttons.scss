@@ -1,0 +1,180 @@
+%mob-click {
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.2s ease !important;
+    z-index: 0 !important;
+    
+    &:hover {
+        z-index: 1000 !important;
+    }
+}
+
+.mob-click {
+    @extend %mob-click;
+}
+
+.mnk {
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    transform: scale(0);
+}
+
+.ripple {
+    animation: ripple 0.65s linear;
+}
+
+@-webkit-keyframes ripple {
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+    }
+}
+
+@-moz-keyframes ripple {
+    100% {
+        opacity: 0;
+        -moz-transform: scale(2.5);
+    }
+}
+
+@-o-keyframes ripple {
+    100% {
+        opacity: 0;
+        -o-transform: scale(2.5);
+    }
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+.toggle-btn,
+.toggle-close {
+    background-color: transparent;
+    border: 0px;
+
+    &:not(:disabled):not(.disabled):active:focus,
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+}
+
+.toggle-btn {
+    padding: 0 10px 0 20px;
+    border-left: 1px solid #eee;
+    margin-left: 20px;
+    font-size: 21px;
+}
+
+/* Bootstrap Buttons */
+
+%btn {
+    font-size: 14px;
+    font-weight: bold;
+    padding: .7rem 1rem;
+    color: #fff !important;
+    border-radius: 3px;
+    @extend %mob-click;
+
+    @include m992 {
+        padding: .7rem 1.5rem;
+    }
+}
+
+.btn {
+    @extend %btn;
+}
+
+.btn-sm {
+    padding: .50rem .8rem;
+}
+
+%btn-primary {
+    background-color: $main;
+    border-color: $main;
+
+    &:not(:disabled):not(.disabled):active,
+    &:focus,
+    &:hover {
+        background-color: $sec;
+        border-color: $sec;
+
+    }
+
+    &:not(:disabled):not(.disabled):active:focus,
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+}
+
+.btn-primary {
+    @extend %btn-primary;
+}
+
+%btn-secondary {
+    background-color: $sec;
+    border-color: $sec;
+
+    &:not(:disabled):not(.disabled):active,
+    &:focus,
+    &:hover {
+        background-color: $main;
+        border-color: $main;
+    }
+
+    &:not(:disabled):not(.disabled):active:focus,
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+}
+
+.btn-secondary {
+    @extend %btn-secondary;
+}
+
+.btn-outline-primary {
+    color: #222 !important;
+    border-color: $main;
+
+
+    &:not(:disabled):not(.disabled):active,
+    &:focus,
+    &:hover {
+        color: #fff !important;
+        background-color: $sec;
+        border-color: $sec;
+    }
+
+    &:not(:disabled):not(.disabled):active:focus,
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+}
+
+.btn-outline-secondary {
+    color: #222 !important;
+    border-color: $sec;
+
+    &:not(:disabled):not(.disabled):active,
+    &:focus,
+    &:hover {
+        color: #fff !important;
+        background-color: $main;
+        border-color: $main;
+    }
+
+    &:not(:disabled):not(.disabled):active:focus,
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+}

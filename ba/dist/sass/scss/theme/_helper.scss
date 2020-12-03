@@ -1,0 +1,29 @@
+.m-first {
+    @include m992 {
+        -ms-flex-order: -1;
+        order: -1;
+    }
+}
+
+.MOB_NONE {
+    @include m992 {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+}
+
+.owl-stage {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+}
+
+.plast {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,92 @@
+/*
+	Theme Name:   Ba Child
+	Theme URI:    https://www.new-waves.net/
+	Description:  maromista Child Theme
+	Author:       New waves
+	Author URI:   https://www.new-waves.net/Author
+	Template:     ba
+	Version:      1.0.1
+    Tested up to: 5.4
+    Requires PHP: 7.0
+	License:      license purchased
+	License URI:  http://themeforest.net/licenses/regular_extended
+	Tags:         Tags: two-columns, buddypress, left-sidebar, right-sidebar, custom-menu, editor-style, featured-images, full-width-template, microformats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+	Text Domain:  ba
+    Tags: one-column, two-columns, right-sidebar, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+    This theme, like WordPress, is licensed under the GPL.
+    Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/* write custom css after this line */
+
+.tab-pane.fade {
+    transition: all 0.2s;
+    transform: translateY(1rem);
+}
+
+.tab-pane.fade.show {
+    transform: translateY(0rem);
+}
+
+#BA_woocommerce .ba-price,
+form.cart,
+.woocommerce-product-details__short-description {
+    background-color: #f6f6f6;
+    padding: 20px 10px;
+    border-radius: 5px;
+}
+
+.woocommerce-product-details__short-description p:last-child {
+    margin-bottom: 0 !important;
+}
+
+#BA_woocommerce .ba-price {
+    background-color: #F4F4F9;
+}
+
+.ba-quantity {
+    background-color: #eee;
+    border-radius: 100px;
+}
+
+#BA_tabs {
+    background-color: #F4F4F9 !important;
+}
+
+@media(max-width:992px) {
+    #BA_tabs {
+        background-color: #fff !important;
+    }
+}
+
+form.cart .btn {
+    border-radius: 100px;
+}
+
+form.cart .tinvwl_add_to_wishlist_button,
+form.cart .tinv-wraper {
+    display: none !important;
+}
+
+.woosq-btn,
+#BA_woocommerce .products .product .product-buttons .tinvwl_add_to_wishlist_button,
+#BA_woocommerce .products .product .product-buttons .product_type_simple,
+#BA_woocommerce .products .product .product-buttons .add_to_cart_button {
+    border-radius: 100px !important;
+}
+
+#BA_woocommerce .products .product .product-buttons .product_type_simple,
+#BA_woocommerce .products .product .product-buttons .add_to_cart_button {
+    padding: .7rem .5rem;
+}
+
+.home .wc-categories-menu {
+    display: block !important
+}
+
+.header-sticky .wc-categories-menu {
+    display: none !important
+}
+
+.header-sticky .wc-on {
+    display: block !important
+}

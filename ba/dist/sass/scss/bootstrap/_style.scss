@@ -1,0 +1,173 @@
+.container-1400 {
+    max-width: 1340px
+}
+
+.container-500 {
+    max-width: 440px !important
+}
+
+.container-700 {
+    max-width: 640px !important
+}
+
+.container-900 {
+    max-width: 840px !important;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1270px;
+    }
+}
+
+.col-2-10 {
+    column-count: 2;
+    column-gap: 10px;
+
+    @include m992 {
+        column-count: 1;
+        column-gap: 0;
+    }
+
+    > div {
+        margin-bottom: 10px;
+        padding: 20px;
+        display: inline-block;
+        float: none;
+    }
+}
+
+/* Breadcrumb  */
+.ba_breadcrumb {
+    margin: 0 0 20px;
+    position: relative;
+    z-index: 2;
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        display: none;
+    }
+
+    .breadcrumb {
+        margin: 0;
+        border-radius: 0;
+        background-color: transparent;
+        padding: 0;
+
+        li {
+            span.separator {
+                margin: 0 7px;
+                font-size: 10px;
+            }
+
+            .bread-current {
+                color: #999;
+            }
+        }
+    }
+}
+
+.breadcrumbs-transparent-on {
+    padding: 120px 0 60px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    h1 {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+
+    .breadcrumb {
+        background-color: transparent;
+        padding: 0;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.breadcrumbs-on {
+    margin-top: 20px;
+}
+
+.page {
+    @include m992 {
+        .breadcrumbs-transparent-on {
+            text-align: center;
+
+            .breadcrumb {
+                text-align: center;
+            }
+
+            .justify-content-start {
+                justify-content: center !important;
+            }
+        }
+    }
+}
+
+/* Pagination */
+#pagination {
+    margin-top: 40px;
+    margin-bottom: 50px;
+
+    .pagination {
+        margin: 0;
+
+        li {
+            margin: 0 5px;
+
+            .page-link,
+            a {
+                padding: 0;
+                width: 38px;
+                height: 38px;
+                line-height: 38px;
+                text-align: center;
+                border-radius: 100%;
+                color: #222;
+            }
+        }
+
+        .active .page-link {
+            background-color: $sec;
+            border-color: $sec;
+            color: #fff;
+
+            &:hover {
+                background-color: $sec;
+                border-color: $sec;
+                color: #fff;
+            }
+        }
+
+
+        li:hover a,
+        li:hover .page-link {
+            background-color: $main;
+            border-color: $main;
+            color: #fff;
+        }
+
+        .prev,
+        .next {
+            border-color: transparent;
+        }
+    }
+}
+
+/* Alert */
+.alert {
+    border-radius: 0;
+    border: 0px !important;
+    margin-bottom: 30px;
+}

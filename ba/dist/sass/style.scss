@@ -1,0 +1,33 @@
+// Variables
+@import "scss/variables.scss";
+
+// Components
+@import "scss/components/components.scss";
+
+// Wordpress
+@import "scss/wordpress/style.scss";
+@import "scss/wordpress/widgets.scss";
+@import "scss/wordpress/article.scss";
+@import "scss/wordpress/single.scss";
+
+
+// Main Style
+@import "scss/theme/header.scss";
+@import "scss/theme/footer.scss";
+@import "scss/theme/forms.scss";
+@import "scss/theme/helper.scss";
+@import "scss/theme/buttons.scss";
+@import "scss/theme/contact.scss";
+@import "scss/theme/projects.scss";
+@import "scss/bootstrap/style.scss";
+@import "scss/owl.scss";
+
+// WooCommerce
+@import "scss/woocommerce/product.scss";
+@import "scss/woocommerce/single.scss";
+@import "scss/woocommerce/style.scss";
+@import "scss/woocommerce/widgets.scss";
+
+@import "scss/style.scss";
+@import "scss/lightcase.scss";
+@import "scss/active.scss";

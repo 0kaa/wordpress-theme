@@ -1,0 +1,127 @@
+#colophon {
+    background-color: #1e272e;
+    margin-top: 30px;
+
+    .footer-inner {
+        padding: 60px 0;
+        color: rgba(255, 255, 255, 0.8);
+
+        a {
+            color: rgba(255, 255, 255, 0.8);
+
+            &:hover {
+                color: $sec;
+            }
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+
+            @include m992 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        .footer-about {
+            @include m992 {
+                margin-bottom: 30px;
+            }
+        }
+
+        .contact-info {
+            > div {
+
+                .ci-left {
+                    background-color: $sec;
+                    border-radius: 100%;
+                }
+
+                .ci-right {
+                    .ci-heading {
+                        color: #fff;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 30px;
+
+            @include m992 {
+                margin-bottom: 20px;
+            }
+        }
+
+        .footer-menu {
+            padding: 0;
+            margin: 0;
+            column-count: 2;
+
+            @include m992 {
+                margin-bottom: 30px;
+            }
+
+            li {
+                display: block;
+
+                a {
+                    display: inline-flex;
+                    padding: 10px 0;
+                }
+
+                .sub-menu {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .copyrights {
+        color: rgba(255, 255, 255, 0.8);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-top: 1px solid rgba(136, 136, 136, .1);
+
+        @include m992 {
+            text-align: center;
+        }
+    }
+
+    #social_icons {
+        @include m992 {
+            display: block !important;
+            margin-top: 10px;
+
+            > div {
+                display: inline-block;
+            }
+        }
+
+        a {
+            color: #fff;
+
+            &:hover {
+                color: $sec;
+            }
+        }
+    }
+}
+
+.copyrights-right {
+    text-align: right;
+
+    @include m992 {
+        text-align: center;
+    }
+    a {
+        color: #fff;
+
+        &:hover {
+            color: $sec;
+        }
+    }
+}
