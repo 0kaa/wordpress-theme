@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Meta
  *
@@ -15,7 +16,7 @@
  * @version     3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
@@ -23,10 +24,14 @@ global $product;
 ?>
 <div class="product_meta">
 
-	<?php do_action( 'woocommerce_product_meta_start' ); ?>
+	<?php do_action('woocommerce_product_meta_start'); ?>
 
-	<?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
+	<?php echo wc_get_product_tag_list($product->get_id(), ', ', '<span class="tagged_as">' . _n('Tag:', 'Tags:', count($product->get_tag_ids()), 'woocommerce') . ' ', '</span>'); ?>
 
-	<?php do_action( 'woocommerce_product_meta_end' ); ?>
+	<?php do_action('woocommerce_product_meta_end'); ?>
 
+</div>
+
+<div class="product_meta">
+	<?php echo wc_get_product_category_list($product->get_id(), ', ', '<span class="product-category">' . _n('Category:', 'Categories:', count($product->get_category_ids()), 'woocommerce') . ' ', '</span>'); ?>
 </div>

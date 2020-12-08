@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product title
  *
@@ -15,17 +16,10 @@
  * @version    1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 global $product;
 ?>
 
-<div class="summry-header">
-
-    <div class="product_meta">
-        <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
-    </div>
-    <div class="d-flex justify-content-between align-items-center">
-        <?php 
-the_title( '<h1 class="product_title entry-title mt-2">', '</h1>' );
+<div class="summry-header"><?php the_title('<h1 class="product_title entry-title mt-2">', '</h1>'); ?>

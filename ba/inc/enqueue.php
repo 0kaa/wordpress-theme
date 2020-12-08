@@ -39,7 +39,7 @@ if (!function_exists('BA_styles')) {
         wp_enqueue_script('masonry');
         // wp_enqueue_script('BA_sticky',      BA_TEMPLATE_URL . '/dist/js/sticky.min.js',     array('jquery'), '1.0.0', true);
         // wp_enqueue_script('BA_owl',         BA_TEMPLATE_URL . '/dist/js/owl.min.js',        array('jquery'), '1.0.0', true);
-        // wp_enqueue_script('BA_init',        BA_TEMPLATE_URL . '/dist/js/init.min.js',       array('jquery'), '1.0.0', true);
+        wp_enqueue_script('BA_init',        BA_TEMPLATE_URL . '/dist/js/init.min.js',       array('jquery'), '1.0.0', true);
     }
 }
 

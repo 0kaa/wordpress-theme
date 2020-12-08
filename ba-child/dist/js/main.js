@@ -16,12 +16,6 @@
     }
   });
 
-  /* jQuery MeanMenu */
-  $("#mobile-menu-active").meanmenu({
-    meanScreenWidth: "991",
-    meanMenuContainer: ".mobile-menu-area .mobile-menu",
-  });
-
   /* Cart */
   $(".language-click , .icon-cart , .icon-setting").on("click", function () {
     $(this).parent().find(".language-dropdown , .shopping-cart-content , .setting-wrapper").slideToggle("medium");
@@ -59,7 +53,7 @@
     autoplay: false,
     autoplayTimeout: 5000,
     navText: ['<i class="ion-ios-arrow-back"></i>', '<i class="ion-ios-arrow-forward"></i>'],
-    item: 3,
+    item: 4,
     margin: 30,
     responsive: {
       0: {
@@ -78,14 +72,14 @@
         items: 3,
       },
       1200: {
-        items: 3,
+        items: 4,
       },
     },
   });
 
   /* Best selling active */
   $(".best-selling-active").owlCarousel({
-    loop: true,
+    loop: false,
     dots: false,
     nav: true,
     autoplay: false,
@@ -390,7 +384,68 @@
       },
     });
   });
+  /* --------------------
+		Grid / List STyle
+	----------------------- */
 
+  $("#list-style").click(function () {
+    $(".products .row").addClass("pro-list");
+    $(this).addClass("btn-secondary");
+    $("#grid-style").removeClass("btn-secondary");
+  });
+
+  $("#grid-style").click(function () {
+    $(".products .row").removeClass("pro-list");
+    $("#list-style").removeClass("btn-secondary");
+    $("#grid-style").addClass("btn-secondary");
+  });
+
+  $(document).on("click", '[data-toggle="sbt"]', function () {
+    var $target = $($(this).data("target"));
+    var classes = $(this).data("classes");
+    $("body").toggleClass("ov");
+    $target.toggleClass(classes);
+    return false;
+  });
+  $(".sbt-close").click(function () {
+    $(".sbt").removeClass("sbt-active");
+    $("body").toggleClass("ov");
+  });
+
+  function aeMenuToggleNav() {
+    $("#toggle_nav .menu-item-has-children > a").removeAttr("href");
+
+    $("#toggle_nav .menu-item-has-children > a").click(function () {
+      $(this).next("ul").stop(true, false, true).slideToggle(300);
+      $(this).toggleClass("menu-item-open");
+    });
+  }
+  aeMenuToggleNav();
+
+  /* --------------------
+		 Navigation.
+	----------------------- */
+  function aeNavigation() {
+    var nomegaMenuItem = $("#AE_primary_nav .menu-item-has-children,#top-bar .menu-item-has-children");
+    nomegaMenuItem.hover(
+      function () {
+        if ($("> ul", this).length > 0) {
+          $("> ul", this).stop().addClass("ae_active");
+        }
+      },
+      function () {
+        if ($("> ul", this).length > 0) {
+          $("> ul", this).stop().removeClass("ae_active");
+        }
+      }
+    );
+
+    $(".cart-list").click(function (e) {
+      $(".cart-box").slideToggle(300);
+      e.stopPropagation();
+    });
+  }
+  aeNavigation();
   /*--------------------------
         Product Zoom
 	---------------------------- */

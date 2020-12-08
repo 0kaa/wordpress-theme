@@ -104,7 +104,7 @@ function before_li_started()
     echo "</div>";
     echo "</div>";
 }
-add_action("woocommerce_after_shop_loop_item", "before_li_started", 10);
+add_action("woocommerce_after_shop_loop_item", "before_li_started", 13);
 
 function add_div_for_loop_thumbnail()
 {
@@ -137,106 +137,108 @@ if (!function_exists('AE_shopping_cart')) {
 
             $count = WC()->cart->cart_contents_count;
             $total_a = WC()->cart->get_total();
-            $cart_text = (!is_rtl()) ? 'Cart' : 'سلة الشراء';
+            $cart_text = (!is_rtl()) ? 'My Cart' : 'سلة الشراء';
+            ?>
+                <div class="header-cart">
+                    <a href="#">
+                        <div class="cart-icon">
+                            <i class="ion-bag"></i>
+                            <span class="count-style"><?php echo esc_html($count) ?></span>
+                        </div>
+                        <div class="cart-text">
+                            <span class="digit"><?php echo $cart_text ?></span>
+                            <span><?php echo $total_a ?></span>
+                        </div>
+                    </a>
+                    <div class="shopping-cart-content">
+                        <?php echo woocommerce_mini_cart(); ?>
 
-            echo '<div class="cart-icon" data-toggle="tooltip" data-placement="bottom" title="' . $cart_text . '">';
-            echo '<button class="p-action-click cart-open sbt-click" data-toggle="sbt" data-target="#cart-box" data-classes="sbt-active"><i class="fa fa-shopping-basket"></i>';
-            echo "<span class='cart-count'>" . esc_html($count) . "</span>";
-            echo "<span class='cart-price'>" . $total_a . "</span>";
-            echo "</div>";
-            echo "</button>";
-
-            echo '<div id="cart-box" class="woocommerce sbt sbt-light" tabindex="-1">';
-            echo '<div class="sbt-warp">';
-            echo '<div class="sbt-inner">';
-            echo '<div class="sbt-close"><button type="button" class="p-action-click mob-click"><i class="fas fa-times"></i></button></div>';
-            echo '<div class="cart-inner">';
-            echo woocommerce_mini_cart();
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-        }
-    }
-}
-
-/*
- * Update Cart Count & Mini Cart
- */
-add_filter('add_to_cart_fragments', 'AE_pdate_ajax_woocomemrce', 10, 1);
-
-function AE_pdate_ajax_woocomemrce($fragments)
-{
-
-    ob_start();
-
-    echo '<span class="cart-price">';
-    echo WC()->cart->get_total();
-    echo '</span>';
-
-    $fragments['span.cart-price'] = ob_get_clean();
-
-    ob_start();
-
-    echo '<span class="cart-count">';
-    echo WC()->cart->get_cart_contents_count();
-    echo '</span>';
-
-    $fragments['span.cart-count'] = ob_get_clean();
-
-    ob_start();
-
-    echo '<div class="cart-inner">';
-    woocommerce_mini_cart();
-    echo "</div>";
-
-    $fragments['.cart-inner'] = ob_get_clean();
-
-    return $fragments;
-}
+                    </div>
+                </div>
+        <?php
 
 
-/*
- * Sale Badge to Percentage
- */
-add_filter('woocommerce_sale_flash', 'AE_add_percentage_to_sale_badge', 20, 3);
-function AE_add_percentage_to_sale_badge($html, $post, $product)
-{
-    if ($product->is_type('variable')) {
-        $percentages = array();
-
-        // Get all variation prices
-        $prices = $product->get_variation_prices();
-
-        // Loop through variation prices
-        foreach ($prices['price'] as $key => $price) {
-            // Only on sale variations
-            if ($prices['regular_price'][$key] !== $price) {
-                // Calculate and set in the array the percentage for each variation on sale
-                $percentages[] = round(100 - ($prices['sale_price'][$key] / $prices['regular_price'][$key] * 100));
+                }
             }
         }
-        // We keep the highest value
-        $percentage = max($percentages) . '%';
-    } else {
-        $regular_price = (float) $product->get_regular_price();
-        $sale_price    = (float) $product->get_sale_price();
 
-        $percentage    = round(100 - ($sale_price / $regular_price * 100)) . '%';
-    }
-    return '<span class="onsale">' . $percentage . '</span>';
-}
+        /*
+ * Update Cart Count & Mini Cart
+ */
+        add_filter('add_to_cart_fragments', 'AE_pdate_ajax_woocomemrce', 10, 1);
 
-// Quantity Fields
-function mm_quantity_fields_script()
-{
+        function AE_pdate_ajax_woocomemrce($fragments)
+        {
 
-    // if WooCommerce is not active, abort.
-    if (!class_exists('WooCommerce')) {
-        return;
-    }
+            ob_start();
 
-    ?>
+            echo '<span class="woocommerce-Price-amount amount">';
+            echo WC()->cart->get_total();
+            echo '</span>';
+
+            $fragments['.cart-text .woocommerce-Price-amount'] = ob_get_clean();
+
+            ob_start();
+
+            echo '<span class="count-style">';
+            echo WC()->cart->get_cart_contents_count();
+            echo '</span>';
+
+            $fragments['span.count-style'] = ob_get_clean();
+
+            ob_start();
+
+            echo '<div class="shopping-cart-content">';
+            woocommerce_mini_cart();
+            echo "</div>";
+
+            $fragments['.shopping-cart-content'] = ob_get_clean();
+
+            return $fragments;
+        }
+
+
+        /*
+ * Sale Badge to Percentage
+ */
+        add_filter('woocommerce_sale_flash', 'AE_add_percentage_to_sale_badge', 20, 3);
+        function AE_add_percentage_to_sale_badge($html, $post, $product)
+        {
+            if ($product->is_type('variable')) {
+                $percentages = array();
+
+                // Get all variation prices
+                $prices = $product->get_variation_prices();
+
+                // Loop through variation prices
+                foreach ($prices['price'] as $key => $price) {
+                    // Only on sale variations
+                    if ($prices['regular_price'][$key] !== $price) {
+                        // Calculate and set in the array the percentage for each variation on sale
+                        $percentages[] = round(100 - ($prices['sale_price'][$key] / $prices['regular_price'][$key] * 100));
+                    }
+                }
+                // We keep the highest value
+                $percentage = max($percentages) . '%';
+            } else {
+                $regular_price = (float) $product->get_regular_price();
+                $sale_price    = (float) $product->get_sale_price();
+
+                $percentage    = round(100 - ($sale_price / $regular_price * 100)) . '%';
+            }
+            return '<span class="onsale">' . $percentage . '</span>';
+        }
+
+        // Quantity Fields
+        function mm_quantity_fields_script()
+        {
+
+            // if WooCommerce is not active, abort.
+            if (!class_exists('WooCommerce')) {
+                return;
+            }
+
+            ?>
         <script type='text/javascript'>
             jQuery(function($) {
                 if (!String.prototype.getDecimals) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Price
  *
@@ -15,24 +16,24 @@
  * @version 3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
 }
 
 global $product;
 
 ?>
-<div class="ba-price">
-    <p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo $product->get_price_html(); ?></p>
+<span class="ma-price price d-block mb-4">
+    <?php echo $product->get_price_html(); ?>
     <div class="product_meta">
-    <?php do_action( 'woocommerce_product_meta_start' ); ?>
+        <?php do_action('woocommerce_product_meta_start'); ?>
 
-    <?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
+        <?php if (wc_product_sku_enabled() && ($product->get_sku() || $product->is_type('variable'))) : ?>
 
-    <span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woocommerce' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woocommerce' ); ?></span></span>
+            <span class="sku_wrapper"><?php esc_html_e('SKU:', 'woocommerce'); ?> <span class="sku"><?php echo ($sku = $product->get_sku()) ? $sku : esc_html__('N/A', 'woocommerce'); ?></span></span>
 
-    <?php endif; ?>
+        <?php endif; ?>
 
-    <?php do_action( 'woocommerce_product_meta_end' ); ?>
-</div>
-</div>
+        <?php do_action('woocommerce_product_meta_end'); ?>
+    </div>
+</span>

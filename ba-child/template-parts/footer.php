@@ -17,24 +17,13 @@ $page_opt = get_post_meta(get_queried_object_id(), 'page_opt', true);
                             <h4>About Us</h4>
                         </div>
                         <div class="footer-about">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididun</p>
+                            <?php echo (!is_rtl()) ? ba_option('about_en') : ba_option('about_ar'); ?>
                             <div class="footer-contact mt-20">
-                                <ul>
-                                    <li>Address: 123 Main Street, Anytown, CA 12345 - USA.</li>
-                                    <li>Telephone: (012) 800 456 789-987 </li>
-                                    <li>Email: <a href="#">yourmail@example.com</a></li>
-                                </ul>
+                                <?php BA_contact_info(); ?>
                             </div>
                         </div>
                         <div class="social-icon">
-                            <ul>
-                                <li><a class="facebook" href="#"><i class="ion-social-facebook"></i></a></li>
-                                <li><a class="twitter" href="#"><i class="ion-social-twitter"></i></a></li>
-                                <li><a class="instagram" href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                                <li><a class="googleplus" href="#"><i class="ion-social-googleplus-outline"></i></a></li>
-                                <li><a class="rss" href="#"><i class="ion-social-rss"></i></a></li>
-                                <li><a class="dribbble" href="#"><i class="ion-social-dribbble-outline"></i></a></li>
-                            </ul>
+                            <?php BA_social_icons(); ?>
                         </div>
                     </div>
                 </div>
